@@ -7,10 +7,9 @@ import os
 
 pattern = re.compile('(\([^\(^\)]*(v\.|see).+?\))')
 casepattern = re.compile('\([^\(^\)]*\d{5}\/\d\d[^|)]*\)')
-
+count = 0
 for directory, subs, files in os.walk('/Users/timothypowell/thesis/data/echr-copy-1'):
     for file in files:
-
         if file.endswith((".html", ".htm")) and 'jud_en' in directory:
             with codecs.open(os.path.join(directory, file), encoding = 'utf8') as f:
                 read = f.read()
