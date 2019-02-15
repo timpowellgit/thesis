@@ -1,24 +1,42 @@
-__author__ = 'timothypowell'
-from sklearn.preprocessing import OneHotEncoder
+import random
+import sys
+import codecs
+from codecs import *
+from nltk.tokenize import word_tokenize, RegexpTokenizer
+import os
+from sklearn.feature_extraction.text import CountVectorizer
 import itertools
+import numpy as np
+import re
+import networkx as nx
+import math
+import pickle
+import timeit
 
-# two example documents
-docs = ["A B C D", "B B C A", "B A A C A"]
+from sklearn.linear_model import RandomizedLogisticRegression
+files = []
+filenames = []
+for dir, subd, filess in os.walk('../data/sample_chunk'):
+    for file in filess:
+        if file.endswith('txt'):
+            files.append(codecs.open(os.path.join(dir,file), encoding='utf8'))
+            filenames.append(dir.split('/')[3])
+print filenames
+vectorizer = CountVectorizer(binary = True, input = 'file', min_df=1)
+vocab = vectorizer.fit_transform(files)
+cases = []
+for a,b in itertools.combinations(files, 2):
+    cases.append((a.name.split('/')[3],b.name.split('/')[3]))
+array = vocab.toarray()[1]
+Xintersection= []
+for a,b in cases:
+    usezero = np.zeros_like(vocab.toarray()[0])
+    indexa = filenames.index(a)
+    indexb = filenames.index(b)
+    indices= list(set(np.nonzero(vocab.toarray()[indexa])[0]).intersection(np.nonzero(vocab.toarray()[indexb])[0]))
 
-# split documents to tokens
-tokens_docs = [doc.split(" ") for doc in docs]
-print tokens_docs
-# convert list of of token-lists to one flat list of tokens
-# and then create a dictionary that maps word to id of word,
-# like {A: 1, B: 2} here
-all_tokens = itertools.chain.from_iterable(tokens_docs)
-word_to_id = {token: idx for idx, token in enumerate(set(all_tokens))}
-print word_to_id
-# convert token lists to token-id lists, e.g. [[1, 2], [2, 2]] here
-token_ids = [[word_to_id[token] for token in tokens_doc] for tokens_doc in tokens_docs]
-print token_ids
-# convert list of token-id lists to one-hot representation
-vec = OneHotEncoder(n_values=len(word_to_id))
-X = vec.fit_transform(token_ids)
+    intersects = np.put(usezero,indices,1)
+    Xintersection.append(usezero)
 
-print X.toarray()
+print Xintersection
+

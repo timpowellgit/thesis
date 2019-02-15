@@ -1,178 +1,130 @@
-from __future__ import print_function
+import random
 import codecs
 from codecs import *
-from nltk.tokenize import word_tokenize, RegexpTokenizer
 import os
 from sklearn.feature_extraction.text import CountVectorizer
-import itertools
 import numpy as np
 import re
 import networkx as nx
 import math
 import pickle
-import timeit
+import operator
+from sklearn.linear_model import RandomizedLogisticRegression
+
+
+
 
 G = nx.read_gexf('../data/echr-judgments-richmeta.gexf')
 edgelist =  G.edges()
-
-print('edgelist loaded')
-
-
-files = [codecs.open(os.path.join(directory, file), encoding = 'utf8')
-    for directory, subs, filess in os.walk('/Users/timothypowell/thesis/data/sample_chunk')
-    for file in filess
-            if file.endswith('citations.txt')]
-
-print('files opened')
+print 'edgelist loaded', len(edgelist)
+usethislist = os.listdir('../data/echr-copy-1')
+edgelist2 = []
 
 
-vectorizer = CountVectorizer(binary = True, input = 'file', min_df=1)
-X = vectorizer.fit_transform(files)
-print('vectorized')
+'''
+make sure to remove the slicing here!!
+'''
+for pair in edgelist[0:5000]:
+    if re.sub('/', '_', pair[0]) in usethislist and re.sub('/', '_', pair[1]) in usethislist:
+        if 'jud_en' in os.listdir('../data/echr-copy-1/%s' %re.sub('/', '_', pair[0])) and 'jud_en' in os.listdir('../data/echr-copy-1/%s'% re.sub('/', '_', pair[1])):
+            edgelist2.append(pair)
+print 'edgelist modified for english only, and in actual data', len(edgelist2)
 
+
+files = [(re.sub('_','/',directory.split('/')[-3]))
+    for directory, subs, filess in os.walk('/Users/timothypowell/thesis/data/echr-copy-1')
+    for file2 in filess if file2.endswith('.txt') and 'jud_en' in directory]
+print 'files opened', len(files)
+
+
+'''
+remove the slicing here
+'''
+
+
+
+edgelist= edgelist2[0:800]
+zeros = []
+while len(zeros) != len(edgelist):
+    pair = tuple(random.sample(files, 2))
+    
+    if pair not in edgelist and pair not in zeros and tuple((pair[1],pair[0])) not in edgelist and tuple((pair[1],pair[0])) not in zeros:
+        zeros.append(pair)
+print 'cases sampled'
+onesandzeros = edgelist+zeros
+
+
+
+cases = [re.sub('/','_',x) for x in list(set(sum(onesandzeros, ())))]
+print 'cases listed'
+files5 = []
+filenames = []
+for i,x in enumerate(cases):
+    dirs = os.listdir('../data/echr-copy-1/%s/jud_en' %(x))
+    #in case many judgments for that case number use most recent
+    dir = max([int(y) for y in dirs])
+    for f in os.listdir('../data/echr-copy-1/%s/jud_en/%s' %(x, dir)):
+        if f.endswith('.txt'):
+            directory = '../data/echr-copy-1/%s/jud_en/%s' %(x, dir)
+            files5.append(os.path.join(directory, f))
+            filenames.append(re.sub('_','/',x))
+print 'files appended'
+data = [edgelist,onesandzeros, cases, files5, filenames]
+with open('preprocessed.pickle', "wb") as f:
+    pickle.dump(data, f)
+
+vectorizer = CountVectorizer(binary = True, input = 'filename', min_df=1)
+vocab = vectorizer.fit_transform(files5)
+print 'vectorized'
+vocabtoarray = vocab.toarray()
+usezero = np.zeros_like(vocabtoarray[0])
+print usezero
 Xintersection = []
-ys = []
-n= len(files)
+for i,pair in enumerate(onesandzeros):
+    print i,' of ', len(onesandzeros)
+    usezero2 = usezero.copy()
+    
+    #print(i, 'zeros loaded, to index now')
+    indexa = filenames.index(pair[0])
+    indexb = filenames.index(pair[1])
+    #print('indexed gonna do the intersection now')
+    indices= list(set(np.nonzero(vocabtoarray[indexa])[0]).intersection(np.nonzero(vocabtoarray[indexb])[0]))
+    #print(indices)
+    
+    # for i in indices:
+    #     for term, index in vectorizer.vocabulary_.iteritems():
+    #         if index == i:
+    #             print(term)
 
-f = math.factorial
-nCr = f(n) / f(2) / f(n-2)
-print('factorial calculated')
-
-casenos= [(re.sub('_','/',files[a[0]].name.split('/')[-4]),print(a[0], ' of ', len(files)))[0] for a in enumerate(X.toarray())]
-print('cases compiled')
-count = 1
-
-
-
-
-
-def forloop(r):
-
-
-    ys = []
-    for i, pair in enumerate(itertools.combinations(enumerate(X.toarray()), r)):
-        ys.append(1 if ((casenos[pair[0][0]], casenos[pair[1][0]]) in edgelist)
-                                     or ((casenos[pair[1][0]], casenos[pair[0][0]]) in edgelist)
-        else 0)
-
-    return ys
-
-def listcomp(r):
-    return [1 if ((casenos[pair[0][0]], casenos[pair[1][0]]) in edgelist)
-                                      or ((casenos[pair[1][0]],casenos[pair[0][0]]) in edgelist)
-      else 0
-      for i, pair in
-      enumerate(itertools.combinations(enumerate(X.toarray()), r))]
-
-setedge = [frozenset(y) for y in edgelist]
-
-def listcompset(r):
-    return [1 if (set((casenos[pair[0][0]], casenos[pair[1][0]])) in setedge)
-
-      else 0
-      for i, pair in
-      enumerate(itertools.combinations(enumerate(X.toarray()), r))]
+    #print('intersection found, gonna put the 1s at indices')
+    intersects = np.put(usezero2,indices,1)
+    
+    Xintersection.append(usezero2)
+    #print('indices put, and appended')
+print len(Xintersection)
+print len(vectorizer.vocabulary_)
 
 
-cases = [frozenset((casenos[pair[0][0]], casenos[pair[1][0]])) for i, pair in
-      enumerate(itertools.combinations(enumerate(X.toarray()), 2))]
-
-def listcompsetcases(r):
-    return [1 if cases[i] in setedge
-
-      else 0
-      for i, pair in
-      enumerate(itertools.combinations(enumerate(X.toarray()), r))]
-
-combos = [(i,pair) for i, pair in
-      enumerate(itertools.combinations(enumerate(X.toarray()), 2))]
-
-def listcompsetcasescombos():
-    return [1 if cases[i] in setedge
-
-      else 0
-      for i, pair in
-      combos]
-
-def numper():
-    return cases.index(list(set(cases).intersection(setedge))[0])
-
-def compprint(r):
-    return [(1,print(i, ' of ', nCr))[0] if ((casenos[pair[0][0]], casenos[pair[1][0]]) in edgelist)
-                                      or ((casenos[pair[1][0]],casenos[pair[0][0]]) in edgelist)
-      else (0,print(i, ' of ', nCr))[0]
-      for i, pair in
-      enumerate(itertools.combinations(enumerate(X.toarray()), r))]
-
-fortimed =timeit.timeit('f(2)', 'from __main__ import forloop as f',number=10)
-comptimed = timeit.timeit('f(2)', 'from __main__ import listcomp as f', number=10)
-compprinttimed = timeit.timeit('f(2)', 'from __main__ import compprint as f', number=10)
-settimed = timeit.timeit('f(2)', 'from __main__ import listcompset as f', number=10)
-casessettimed = timeit.timeit('f(2)', 'from __main__ import listcompsetcases as f', number=10)
-casessetcombotimed = timeit.timeit('f()', 'from __main__ import listcompsetcasescombos as f', number=10)
-numpertimed = timeit.timeit('f()', 'from __main__ import numper as f', number=10)
-print(fortimed,comptimed, compprinttimed, settimed, casessettimed, casessetcombotimed)
-
-#
-# ys =[(1,print(i, ' of ', nCr))[0] if ((casenos[pair[0][0]], casenos[pair[1][0]]) in edgelist)
-#                                       or ((casenos[pair[1][0]],casenos[pair[0][0]]) in edgelist)
-#       else (0,print(i, ' of ', nCr))[0]
-#       for i, pair in
-#       enumerate(itertools.combinations(enumerate(X.toarray()), 2))]
-# print(ys)
-#use itertool combinations to match all possible combinations
-# for a, b in itertools.combinations(enumerate(X.toarray()), 2):
-#     print count, ' of ', nCr
-#     count +=1
-#
-#
-#     #add 1 or 0 according to whether tuple is there, as in if edge between nodes exists
-#     if ((casenos[a[0]], casenos[b[0]]) in edgelist) or ((casenos[b[0]],casenos[a[0]]) in edgelist):
-#         ys.append(1)
-#     else:
-#         ys.append(0)
-    # first = vectorizer.inverse_transform(a[1])
-    # second = vectorizer.inverse_transform(b[1])
-    #
-    #
-    # u = list(set.intersection(set(first[0]),set(second[0])))
-    # vectorizer.input = 'content'
-    # intersection = vectorizer.transform(u).toarray()[0]
-    # intersection = intersection.tolist()
-    # Xintersection.append(intersection)
-
-
+selector = RandomizedLogisticRegression(n_resampling=300,random_state=101)
+ys = [1 if (i+1)*2 <= len(onesandzeros) else 0 for i,x in enumerate(onesandzeros)]
+print(len(Xintersection[0]), len(Xintersection))
+selector.fit(Xintersection,ys)
+print(sum(selector.get_support() !=0))
+print(len(selector.all_scores_))
+print(len(vectorizer.vocabulary_))
 with open('../data/Xs_Ys.pickle', 'wb') as handle:
   pickle.dump(Xintersection, handle)
   pickle.dump(ys, handle)
+higherscores = []
+for i,x in enumerate(selector.all_scores_):
+    if x != 0:
+        term = vectorizer.vocabulary_.keys()[vectorizer.vocabulary_.values().index(i)]
+        termandscore = [x[0],term]
+
+        higherscores.append(termandscore)
+scorefile = open('scorefile.txt', 'w')
+for y in sorted(higherscores,key=operator.itemgetter(0), reverse=True):
+    scorefile.write('%s\n' %(str(y)))
 
 
-'''
-tokenizer = RegexpTokenizer(r'\w+')
-vocab = []
-tokens_docs = []
-for directory, subs, files in os.walk('/Users/timothypowell/thesis/data/echr-copy-1'):
-    for file in files:
 
-        if file.endswith('citations.txt'):
-            with codecs.open(os.path.join(directory, file), encoding = 'utf8') as f:
-                read = f.read()
-                #cleaned = html2text(read)
-                #print cleaned
-                tokens = tokenizer.tokenize(read)
-                stemmed = stemming(tokens, type = 'PorterStemmer')
-                vocab += stemmed
-                tokens_docs.append(stemmed)
-                print len(vocab)
-
-vocab = set(vocab)
-print len(vocab)
-word_to_id = {token: idx for idx, token in enumerate(vocab)}
-token_ids = [[word_to_id[token] for token in tokens_doc] for tokens_doc in tokens_docs]
-
-vec = OneHotEncoder(n_values=len(word_to_id))
-X = vec.fit_transform(token_ids)
-with open('filename.pickle', 'wb') as handle:
-  pickle.dump(a.toarray, handle)
-
-'''

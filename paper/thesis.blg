@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: thesis.aux
+The style file: ieeetr.bst
+Database file #1: biblo.bib
+Repeated entry---line 244 of file biblo.bib
+ : @article{whalen2016legal
+ :                         ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 338 of file biblo.bib
+ : @article{sadl2014empirical
+ :                           ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 347 of file biblo.bib
+ : @inproceedings{zhang2007semantics
+ :                                  ,
+I'm skipping whatever remains of this entry
+Repeated entry---line 375 of file biblo.bib
+ : @article{fried1999evolution
+ :                            ,
+I'm skipping whatever remains of this entry
+Warning--empty journal in moniapplication
+Warning--empty year in moniapplication
+Warning--empty journal in sadl2014empirical
+Warning--empty journal in galbraith1988genealogy
+You've used 54 entries,
+            1876 wiz_defined-function locations,
+            775 strings with 12626 characters,
+and the built_in function-call counts, 14383 in all, are:
+= -- 1442
+> -- 507
+< -- 0
++ -- 194
+- -- 140
+* -- 943
+:= -- 1985
+add.period$ -- 60
+call.type$ -- 54
+change.case$ -- 47
+chr.to.int$ -- 0
+cite$ -- 58
+duplicate$ -- 800
+empty$ -- 1402
+format.name$ -- 140
+if$ -- 3563
+int.to.chr$ -- 0
+int.to.str$ -- 54
+missing$ -- 60
+newline$ -- 172
+num.names$ -- 54
+pop$ -- 201
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 536
+stack$ -- 0
+substring$ -- 908
+swap$ -- 332
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 4
+while$ -- 145
+width$ -- 56
+write$ -- 525
+(There were 4 error messages)

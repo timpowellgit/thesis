@@ -1,0 +1,264 @@
+\begin{thebibliography}{10}
+
+\bibitem{tiersma1999legal}
+P.~M. Tiersma, {\em Legal language}.
+\newblock University of Chicago Press, 1999.
+
+\bibitem{christie1963vagueness}
+G.~C. Christie, ``Vagueness and legal language,'' {\em Minn. L. Rev.}, vol.~48,
+  p.~885, 1963.
+
+\bibitem{grundfest2002statutes}
+J.~A. Grundfest and A.~C. Pritchard, ``Statutes with multiple personality
+  disorders: The value of ambiguity in statutory design and interpretation,''
+  {\em Stanford Law Review}, pp.~627--736, 2002.
+
+\bibitem{moniapplication}
+M.~Moni, ``Application of natural language processing techniques in
+  e--governance,''
+
+\bibitem{mikolov2013efficient}
+T.~Mikolov, K.~Chen, G.~Corrado, and J.~Dean, ``Efficient estimation of word
+  representations in vector space,'' {\em arXiv preprint arXiv:1301.3781},
+  2013.
+
+\bibitem{bench2012history}
+T.~Bench-Capon, M.~Araszkiewicz, K.~Ashley, K.~Atkinson, F.~Bex, F.~Borges,
+  D.~Bourcier, P.~Bourgine, J.~G. Conrad, E.~Francesconi, {\em et~al.}, ``A
+  history of ai and law in 50 papers: 25 years of the international conference
+  on ai and law,'' {\em Artificial Intelligence and Law}, vol.~20, no.~3,
+  pp.~215--319, 2012.
+
+\bibitem{bench2003model}
+T.~Bench-Capon and G.~Sartor, ``A model of legal reasoning with cases
+  incorporating theories and values,'' {\em Artificial Intelligence}, vol.~150,
+  no.~1, pp.~97--143, 2003.
+
+\bibitem{ashley2008process}
+K.~D. Ashley, C.~Lynch, N.~Pinkwart, and V.~Aleven, ``A process model of legal
+  argument with hypotheticals.,'' in {\em JURIX}, vol.~189, pp.~1--10, 2008.
+
+\bibitem{vsavelka2015transfer}
+J.~{\v{S}}avelka and K.~D. Ashley, ``Transfer of predictive models for
+  classification of statutory texts in multi-jurisdictional settings,'' in {\em
+  Proceedings of the 15th International Conference on Artificial Intelligence
+  and Law}, pp.~216--220, ACM, 2015.
+
+\bibitem{buabuchachart2013classification}
+A.~Buabuchachart, K.~Metcalf, N.~Charness, and L.~Morgenstern, ``Classification
+  of regulatory paragraphs by discourse structure, reference structure, and
+  regulation type.,'' in {\em JURIX}, pp.~59--62, 2013.
+
+\bibitem{galgani2012combining}
+F.~Galgani, P.~Compton, and A.~Hoffmann, ``Combining different summarization
+  techniques for legal text,'' in {\em Proceedings of the Workshop on
+  Innovative Hybrid Approaches to the Processing of Textual Data},
+  pp.~115--123, Association for Computational Linguistics, 2012.
+
+\bibitem{hyman2015process}
+H.~Hyman, T.~Sincich, R.~Will, M.~Agrawal, B.~Padmanabhan, and W.~Fridy~Iii,
+  ``A process model for information retrieval context learning and knowledge
+  discovery,'' {\em Artificial Intelligence and Law}, vol.~23, no.~2,
+  pp.~103--132, 2015.
+
+\bibitem{getman2014crowdsourcing}
+A.~P. Getman and V.~V. Karasiuk, ``A crowdsourcing approach to building a legal
+  ontology from text,'' {\em Artificial Intelligence and Law}, vol.~22, no.~3,
+  pp.~313--335, 2014.
+
+\bibitem{Azzopardi2016}
+S.~Azzopardi, G.~J. Pace, F.~Schapachnik, and G.~Schneider, ``Contract
+  automata,'' {\em Artificial Intelligence and Law}, vol.~24, no.~3,
+  pp.~203--243, 2016.
+
+\bibitem{whalen2016legal}
+R.~Whalen, ``Legal networks: The promises and challenges of legal network
+  analysis,'' {\em Michigan State Law Review}, vol.~2016, no.~2, p.~539, 2016.
+
+\bibitem{livermore2015topic}
+M.~A. Livermore, A.~Riddell, and D.~Rockmore, ``A topic model approach to
+  studying agenda formation for the us supreme court,'' {\em Virginia Law and
+  Economics Research Paper}, no.~2, 2015.
+
+\bibitem{Ashley2009}
+K.~D. Ashley and S.~Br{\"u}ninghaus, ``Automatically classifying case texts and
+  predicting outcomes,'' {\em Artificial Intelligence and Law}, vol.~17, no.~2,
+  pp.~125--165, 2009.
+
+\bibitem{hopkins2010method}
+D.~J. Hopkins and G.~King, ``A method of automated nonparametric content
+  analysis for social science,'' {\em American Journal of Political Science},
+  vol.~54, no.~1, pp.~229--247, 2010.
+
+\bibitem{winkels2014towards}
+R.~Winkels, A.~Boer, B.~Vredebregt, and A.~van SOMEREN, ``Towards a legal
+  recommender system.,'' in {\em JURIX}, pp.~169--178, 2014.
+
+\bibitem{lettieri2016computational}
+N.~Lettieri, A.~Altamura, A.~Faggiano, and D.~Malandrino, ``A computational
+  approach for the experimental study of eu case law: analysis and
+  implementation,'' {\em Social Network Analysis and Mining}, vol.~6, no.~1,
+  p.~56, 2016.
+
+\bibitem{landes1976legal}
+W.~M. Landes and R.~Posner, ``Legal precedent: A theoretical and empirical
+  analysis,'' 1976.
+
+\bibitem{black2013citation}
+R.~C. Black and J.~F. Spriggs, ``The citation and depreciation of us supreme
+  court precedent,'' {\em Journal of Empirical Legal Studies}, vol.~10, no.~2,
+  pp.~325--358, 2013.
+
+\bibitem{lupu2010role}
+Y.~Lupu and E.~Voeten, ``The role of precedent at the european court of human
+  rights: A network analysis of case citations,'' {\em 2010}, p.~12, 2010.
+
+\bibitem{lupu2013strategic}
+Y.~Lupu and J.~H. Fowler, ``Strategic citations to precedent on the us supreme
+  court,'' {\em The Journal of Legal Studies}, vol.~42, no.~1, pp.~151--186,
+  2013.
+
+\bibitem{whalen2013modeling}
+R.~Whalen, ``Modeling annual supreme court influence: the role of citation
+  practices and judicial tenure in determining precedent network growth,'' in
+  {\em Complex Networks}, pp.~169--176, Springer, 2013.
+
+\bibitem{fowler2007network}
+J.~H. Fowler, T.~R. Johnson, J.~F. Spriggs, S.~Jeon, and P.~J. Wahlbeck,
+  ``Network analysis and the law: Measuring the legal importance of precedents
+  at the us supreme court,'' {\em Political Analysis}, vol.~15, no.~3,
+  pp.~324--346, 2007.
+
+\bibitem{mirshahvalad2012significant}
+A.~Mirshahvalad, J.~Lindholm, M.~Derlen, and M.~Rosvall, ``Significant
+  communities in large sparse networks,'' {\em PloS one}, vol.~7, no.~3,
+  p.~e33721, 2012.
+
+\bibitem{sadl2014empirical}
+U.~Sadl and H.~P. Olsen, ``Empirical studies of the webs of international case
+  law: A new research agenda,'' 2014.
+
+\bibitem{zhang2007semantics}
+P.~Zhang and L.~Koppaka, ``Semantics-based legal citation network,'' in {\em
+  Proceedings of the 11th international conference on Artificial intelligence
+  and law}, pp.~123--130, ACM, 2007.
+
+\bibitem{hutchinson2005evolution}
+A.~C. Hutchinson, {\em Evolution and the common law}.
+\newblock Cambridge University Press, 2005.
+
+\bibitem{galbraith1988genealogy}
+D.~Galbraith, ``A genealogy of law,'' 1988.
+
+\bibitem{dawkins2016selfish}
+R.~Dawkins {\em et~al.}, {\em The selfish gene}.
+\newblock Oxford university press, 2016.
+
+\bibitem{fried1999evolution}
+M.~S. Fried, ``The evolution of legal concepts: The memetic perspective,'' {\em
+  Jurimetrics}, pp.~291--316, 1999.
+
+\bibitem{strong1969fifty}
+F.~R. Strong, ``Fifty years of" clear and present danger": From schenck to
+  brandenburg-and beyond,'' {\em The Supreme Court Review}, vol.~1969,
+  pp.~41--80, 1969.
+
+\bibitem{johnson2013memtic}
+S.~J. Johnson, ``Memtic theory, trademarks \& the viral meme mark,'' {\em J.
+  Marshall Rev. Intell. Prop. L.}, vol.~13, p.~iii, 2013.
+
+\bibitem{10.5305/amerjintelaw.105.4.0649}
+G.~de~Búrca, ``The road not taken: The european union as a global human rights
+  actor,'' {\em The American Journal of International Law}, vol.~105, no.~4,
+  pp.~649--693, 2011.
+
+\bibitem{madsen2007cold}
+M.~R. Madsen, ``From cold war instrument to supreme european court,'' {\em Law
+  and Social Enquiry}, 2007.
+
+\bibitem{keller2008europe}
+H.~Keller and A.~S. Sweet, {\em A Europe of rights: the impact of the ECHR on
+  national legal systems}.
+\newblock Oxford University Press, USA, 2008.
+
+\bibitem{dahlberg2014not}
+M.~Dahlberg, ``It is not its task to act as a court of fourth instance: The
+  case of the european court of human rights,'' {\em Eur. J. Legal Stud.},
+  vol.~7, p.~77, 2014.
+
+\bibitem{harris2014harris}
+D.~J. Harris, M.~O'Boyle, E.~Bates, and C.~Buckley, {\em Harris, O'Boyle, and
+  Warbrick Law of the European Convention on Human Rights}.
+\newblock Oxford University Press, USA, 2014.
+
+\bibitem{boyle2009european}
+K.~Boyle, ``European experience: The european convention on human rights,
+  the,'' {\em Victoria U. Wellington L. Rev.}, vol.~40, p.~167, 2009.
+
+\bibitem{dezalay2006cold}
+Y.~Dezalay and B.~Garth, ``From the cold war to kosovo: The rise and renewal of
+  the field of international human rights,'' {\em Annu. Rev. Law Soc. Sci.},
+  vol.~2, pp.~231--255, 2006.
+
+\bibitem{marks1980emerging}
+S.~P. Marks, ``Emerging human rights: a new generation for the 1980s,'' {\em
+  Rutgers L. Rev.}, vol.~33, p.~435, 1980.
+
+\bibitem{brander2012compass}
+P.~Brander, {\em Compass: Manual for human rights education with young people}.
+\newblock Council of Europe, 2012.
+
+\bibitem{dzehtsiarou2011european}
+K.~Dzehtsiarou, ``European consensus and the evolutive interpretation of the
+  european convention on human rights,'' {\em German LJ}, vol.~12, p.~1730,
+  2011.
+
+\bibitem{bethard2010should}
+S.~Bethard and D.~Jurafsky, ``Who should i cite: learning literature search
+  models from citation behavior,'' in {\em Proceedings of the 19th ACM
+  international conference on Information and knowledge management},
+  pp.~609--618, ACM, 2010.
+
+\bibitem{yogatama2011predicting}
+D.~Yogatama, M.~Heilman, B.~O'Connor, C.~Dyer, B.~R. Routledge, and N.~A.
+  Smith, ``Predicting a scientific community's response to an article,'' in
+  {\em Proceedings of the Conference on Empirical Methods in Natural Language
+  Processing}, pp.~594--604, Association for Computational Linguistics, 2011.
+
+\bibitem{kuhn2014inheritance}
+T.~Kuhn, M.~Perc, and D.~Helbing, ``Inheritance patterns in citation networks
+  reveal scientific memes,'' {\em Physical Review X}, vol.~4, no.~4, p.~041036,
+  2014.
+
+\bibitem{macovei2004guide}
+M.~Macovei, ``A guide to the implementation of article 10 of the european
+  convention on human rights,'' {\em Human rights handbooks}, no.~2, 2004.
+
+\bibitem{meinshausen2010stability}
+N.~Meinshausen and P.~B{\"u}hlmann, ``Stability selection,'' {\em Journal of
+  the Royal Statistical Society: Series B (Statistical Methodology)}, vol.~72,
+  no.~4, pp.~417--473, 2010.
+
+\bibitem{tibshirani1996regression}
+R.~Tibshirani, ``Regression shrinkage and selection via the lasso,'' {\em
+  Journal of the Royal Statistical Society. Series B (Methodological)},
+  pp.~267--288, 1996.
+
+\bibitem{ramos2003using}
+J.~Ramos, ``Using tf-idf to determine word relevance in document queries,'' in
+  {\em Proceedings of the first instructional conference on machine learning},
+  2003.
+
+\bibitem{scikit-learn}
+F.~Pedregosa, G.~Varoquaux, A.~Gramfort, V.~Michel, B.~Thirion, O.~Grisel,
+  M.~Blondel, P.~Prettenhofer, R.~Weiss, V.~Dubourg, J.~Vanderplas, A.~Passos,
+  D.~Cournapeau, M.~Brucher, M.~Perrot, and E.~Duchesnay, ``Scikit-learn:
+  Machine learning in {P}ython,'' {\em Journal of Machine Learning Research},
+  vol.~12, pp.~2825--2830, 2011.
+
+\bibitem{oetheimer2007freedom}
+M.~Oetheimer, {\em Freedom of expression in Europe: case-law concerning Article
+  10 of the European Convention of Human Rights}, vol.~88.
+\newblock Council of Europe, 2007.
+
+\end{thebibliography}

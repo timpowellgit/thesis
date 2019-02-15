@@ -18,6 +18,6 @@ for directory, subs, files in os.walk('/Users/timothypowell/thesis/data/echr-cop
                 if 'DISSENTING' in cleaned :
                     cleaned = cleaned[:cleaned.index('DISSENTING')]
                 # re sub fulltext with '' filename = file.split('.')[0]
-                textfile = os.path.join(directory, '{}nodissenting_nocitations.txt'.format(filename))
+                textfile = os.path.join(directory, '{}nodissenting_nocitations'.format(filename))
                 myfile =  open(textfile, 'w+')
                 myfile.write(cleaned.encode('utf8'))
